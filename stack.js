@@ -55,31 +55,18 @@ class Stack {
   // ! remove from the beginning??? of the stack and return its value
 
   pop() {
-    let firstItem;
+  
     if(!this.first) {
       throw new Error("The stack is empty!")
-    } else if(this.first === this.last) {
-      console.log("else if is running")
-      firstItem = this.first;
-      this.first = null; 
-      this.last = null; 
-    } else {
-
-    //   let currentNode = this.first; 
-    //   // console.log("this.head", this.first)
-
-    //   while(currentNode.next) {
-    //     currentNode = currentNode.next
-    // }
-      // lastItem = this.last; 
-      // console.log("lastItem:", lastItem)
-      // this.tail = currentNode;
-
-      console.log("this.first:", this.first)
-      firstItem = this.first; 
-      this.first = firstItem.next; 
-
     }
+   
+    let firstItem = this.first; 
+    this.first = firstItem.next; 
+
+    if(this.first === null) {
+      this.last === null;
+    }
+
     this.size --;
     return firstItem.val; 
   }

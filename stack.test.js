@@ -41,9 +41,9 @@ describe("pop", function() {
     expect(stack.size).toBe(0);
   });
 
-  // it("throws an error if the stack is empty", function() {
-  //   expect(() => stack.pop()).toThrow(Error);
-  // });
+  it("throws an error if the stack is empty", function() {
+    expect(() => stack.pop()).toThrow(Error);
+  });
 });
 
 // describe("peek", function() {
