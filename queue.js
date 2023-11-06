@@ -46,27 +46,43 @@ class Queue {
       this.last = newNode; 
     }
 
-    this.size ++; 
-    
+    this.size ++;  
   }
 
   /** dequeue(): remove the node from the start of the queue
    * and return its value. Should throw an error if the queue is empty. */
 
   dequeue() {
-
+    let firstItem;
+    if(!this.first) {
+      throw new Error("The queue is empty");
+    } else if(this.first === this.last) {
+      firstItem = this.first; 
+      this.first = null;
+      this.last = null; 
+    } else {
+      firstItem = this.first;
+      this.first = this.first.next; 
+    }
+    this.size --; 
+    return firstItem.val;
   }
 
   /** peek(): return the value of the first node in the queue. */
 
   peek() {
-
+    if(this.first) {
+      return this.first.val; 
+    } else {
+      throw new Error("The queue is empty")
+    }
   }
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
 
   isEmpty() {
-
+    if(this.first) return false;  
+    return true; 
   }
 }
 
