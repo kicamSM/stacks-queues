@@ -30,6 +30,7 @@ class Stack {
   }
 
   /** push(val): add new value to end of the stack. Returns undefined. */
+  // ! by end it appears to mean the top of the stack which is confusing
 
   push(val) {
     let newNode = new Node(val);
@@ -51,9 +52,36 @@ class Stack {
 
   /** pop(): remove the node from the top of the stack
    * and return its value. Should throw an error if the stack is empty. */
+  // ! remove from the beginning??? of the stack and return its value
 
   pop() {
+    let firstItem;
+    if(!this.first) {
+      throw new Error("The stack is empty!")
+    } else if(this.first === this.last) {
+      console.log("else if is running")
+      firstItem = this.first;
+      this.first = null; 
+      this.last = null; 
+    } else {
 
+    //   let currentNode = this.first; 
+    //   // console.log("this.head", this.first)
+
+    //   while(currentNode.next) {
+    //     currentNode = currentNode.next
+    // }
+      // lastItem = this.last; 
+      // console.log("lastItem:", lastItem)
+      // this.tail = currentNode;
+
+      console.log("this.first:", this.first)
+      firstItem = this.first; 
+      this.first = firstItem.next; 
+
+    }
+    this.size --;
+    return firstItem.val; 
   }
 
   /** peek(): return the value of the first node in the stack. */
@@ -74,6 +102,7 @@ console.log("numsStack:", numsStack)
 console.log("print 1")
 numsStack.print(); 
 numsStack.push(2); 
+numsStack.pop();
 console.log("print 2")
 numsStack.print();
 
