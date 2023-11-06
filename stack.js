@@ -11,16 +11,42 @@ class Node {
  *  remove from the top or add to the top. */
 
 class Stack {
-  constructor() {
+  constructor(vals = []) {
     this.first = null;
     this.last = null;
     this.size = 0;
+    for(let val of vals) this.push(val);
+  }
+
+  print() {
+    let current = this.first;
+    console.log("current:", current)
+
+
+    while (current !== null) {
+      console.log(current.val);
+      current = current.next;
+    }
   }
 
   /** push(val): add new value to end of the stack. Returns undefined. */
 
   push(val) {
+    let newNode = new Node(val);
+ 
+    if(!this.first) {
+      this.first = newNode;
+      this.last = newNode; 
+      this.size ++;
+      return 
 
+    } else {
+      newNode.next = this.first; 
+      this.first = newNode; 
+    }
+
+    this.size ++; 
+    return val;
   }
 
   /** pop(): remove the node from the top of the stack
@@ -42,5 +68,17 @@ class Stack {
 
   }
 }
+
+let numsStack = new Stack([1]); 
+console.log("numsStack:", numsStack)
+console.log("print 1")
+numsStack.print(); 
+numsStack.push(2); 
+console.log("print 2")
+numsStack.print();
+
+// console.log("print 3")
+// numsQueue.print();
+console.log("numsStack2:", numsStack)
 
 module.exports = Stack;
