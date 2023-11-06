@@ -36,28 +36,17 @@ class Queue {
   enqueue(val) {
 
     let newNode = new Node(val); 
-    let currentNode = this.first; 
 
     if(!this.first) {
       this.first = newNode; 
       this.last = newNode; 
-
-    } else if(this.first.val === this.last.val){
-      currentNode.next = newNode; 
-      this.last = newNode; 
  
     } else {
-
-      while(currentNode.next) {
-        currentNode = currentNode.next; 
-      }
-    currentNode.next = newNode; 
-    this.last = newNode; 
+      this.last.next = newNode; 
+      this.last = newNode; 
     }
 
     this.size ++; 
-
-    return
     
   }
 
