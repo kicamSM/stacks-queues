@@ -101,3 +101,46 @@ console.log("numsQueue2:", numsQueue)
 
 
 module.exports = Queue;
+
+
+// class Queue {
+//   constructor() {
+//     this._list = new LinkedList(); // Initialize the linked list instance
+//   }
+
+//   enqueue(val) {
+//     this._list.insertAtBack(val); // Use LinkedList's insertAtBack method
+//     this.size++; // Update the queue size
+//   }
+
+//   dequeue() {
+//     if (this._list.isEmpty()) {
+//       throw new Error("The queue is empty");
+//     }
+
+//     const removedItem = this._list.removeFromFront(); // Use LinkedList's removeFromFront method
+//     this.size--; // Update the queue size
+//     return removedItem;
+//   }
+
+//   peek() {
+//     if (this._list.isEmpty()) {
+//       throw new Error("The queue is empty");
+//     }
+
+//     return this._list.getFirst(); // Use LinkedList's getFirst method
+//   }
+
+//   isEmpty() {
+//     return this._list.isEmpty(); // Use LinkedList's isEmpty method
+//   }
+// }
+
+// let numsQueue = new Queue([]); 
+// numsQueue.enqueue(1);
+// numsQueue.enqueue(2);
+
+// module.exports = Queue;
+
+
+
